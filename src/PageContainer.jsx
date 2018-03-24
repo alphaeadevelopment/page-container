@@ -17,7 +17,7 @@ class PageContainer extends React.Component {
   }
   render() {
     const { footerHeight, headerHeight } = this.state;
-    const { header, body, footer, children } = this.props;
+    const { header, footer, children } = this.props;
     return (
       <div>
         {header && <Header onSetHeaderHeight={this.onSetHeaderHeight}>{header}</Header>}
@@ -31,4 +31,4 @@ class PageContainer extends React.Component {
 }
 
 export default PageContainer;
-  // <Errors />
+// <Errors />
