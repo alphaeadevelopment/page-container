@@ -4,7 +4,7 @@ import { withStyles } from 'material-ui/styles';
 const styles = {
   root: {
     position: 'absolute',
-    width: '100vw',
+    width: '100%',
   },
 };
 class RawBody extends React.Component {
