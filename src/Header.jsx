@@ -3,6 +3,8 @@ import { withStyles } from 'material-ui/styles';
 
 const styles = () => ({
   root: {
+    'position': 'absolute',
+    'width': '100%',
   },
 });
 class RawHeader extends React.Component {

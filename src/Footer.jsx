@@ -3,18 +3,30 @@ import { withStyles } from 'material-ui/styles';
 
 const styles = () => ({
   root: {
+    'position': 'absolute',
+    'width': '100%',
   },
 });
 class RawFooter extends React.Component {
+  state = {
+    height: 0,
+  }
   onSetRef = (r) => {
-    if (r && this.props.onSetFooterHeight) {
-      this.props.onSetFooterHeight(r.clientHeight);
+    if (r) {
+      if (this.props.onSetFooterHeight) {
+        this.props.onSetFooterHeight(r.clientHeight);
+      }
+      this.setState({ height: r.clientHeight });
     }
   }
   render() {
-    const { classes, children } = this.props;
+    const { height } = this.state;
+    const { classes, children, scrollTop } = this.props;
+    const footerStyles = {
+      top: `calc(100vh - ${height - scrollTop - 1}px)`,
+    };
     return (
-      <div className={classes.root} ref={this.onSetRef}>
+      <div className={classes.root} ref={this.onSetRef} style={footerStyles}>
         {children}
       </div>
     );
