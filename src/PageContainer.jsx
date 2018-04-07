@@ -16,9 +16,13 @@ export class PageContainer extends React.Component {
     footerHeight: 0,
     headerHeight: 0,
     scrollTop: 0,
+    width: '100vw',
   }
   componentDidMount = () => {
     this.scrollListener = window.addEventListener('scroll', this.onScroll);
+    this.setState({
+      width: document.body.clientWidth,
+    });
   }
   componentWillUnmount = () => {
     window.removeEventListener(this.onScroll);
@@ -33,10 +37,10 @@ export class PageContainer extends React.Component {
     this.setState({ scrollTop: e.target.documentElement.scrollTop });
   }
   render() {
-    const { footerHeight, headerHeight, scrollTop } = this.state;
+    const { footerHeight, headerHeight, scrollTop, width } = this.state;
     const { classes, header, footer, children } = this.props;
     return (
-      <div className={classes.root} style={{ width: document.body.clientWidth }}>
+      <div className={classes.root} style={{ width }}>
         {header && <Header onSetHeaderHeight={this.onSetHeaderHeight}>{header}</Header>}
         <Body {...this.props} scrollTop={scrollTop} footerHeight={footerHeight} headerHeight={headerHeight}>
           {children}

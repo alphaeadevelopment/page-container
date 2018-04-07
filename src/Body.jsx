@@ -12,8 +12,6 @@ class RawBody extends React.Component {
     // const { footerHeight, headerHeight, classes, children } = this.props;
     const { classes, headerHeight, footerHeight, children } = this.props;
     const ctrStyles = {
-      // height: `calc(100vh - ${footerHeight + headerHeight}px)`,
-      // height: '100vh',
       marginTop: headerHeight,
       marginBottom: footerHeight,
     };
