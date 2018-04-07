@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config config/webpack.config.js",
-    "deploy": "npm run build && npm run publish",
-    "publish": "npm version patch && npm run republish && npm run post:publish",
+    "deploy": "npm run build && npm run do:publish",
+    "do:publish": "npm version patch && npm run republish && npm run post:publish",
     "republish": "npm publish",
     "post:publish": "git push && git push --tags"
   },
