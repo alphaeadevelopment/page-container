@@ -14,6 +14,7 @@ class RawBody extends React.Component {
     const ctrStyles = {
       marginTop: headerHeight,
       marginBottom: footerHeight,
+      minHeight: `calc(100vh - ${headerHeight + footerHeight}px`,
     };
     return (
       <div className={classes.root} style={ctrStyles}>

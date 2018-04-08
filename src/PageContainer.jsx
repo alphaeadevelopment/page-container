@@ -8,6 +8,7 @@ import Body from './Body';
 
 const styles = {
   root: {
+    position: 'relative',
   },
 };
 
@@ -42,7 +43,7 @@ export class PageContainer extends React.Component {
     return (
       <div className={classes.root} style={{ width }}>
         {header && <Header onSetHeaderHeight={this.onSetHeaderHeight}>{header}</Header>}
-        <Body {...this.props} scrollTop={scrollTop} footerHeight={footerHeight} headerHeight={headerHeight}>
+        <Body scrollTop={scrollTop} footerHeight={footerHeight} headerHeight={headerHeight}>
           {children}
         </Body>
         {footer && <Footer scrollTop={scrollTop} onSetFooterHeight={this.onSetFooterHeight}>{footer}</Footer>}
