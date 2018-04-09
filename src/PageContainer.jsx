@@ -8,7 +8,7 @@ import Body from './Body';
 
 const styles = {
   root: {
-    position: 'relative',
+    // position: 'relative',
   },
 };
 
@@ -20,13 +20,13 @@ export class PageContainer extends React.Component {
     width: '100vw',
   }
   componentDidMount = () => {
-    this.scrollListener = window.addEventListener('scroll', this.onScroll);
-    this.setState({
-      width: document.body.clientWidth,
-    });
+    window.addEventListener('scroll', this.onScroll);
+    window.addEventListener('resize', this.onResize);
+    this.updateWidth();
   }
   componentWillUnmount = () => {
     window.removeEventListener(this.onScroll);
+    window.removeEventListener(this.onResize);
   }
   onSetFooterHeight = (h) => {
     this.setState({ footerHeight: h });
@@ -36,6 +36,14 @@ export class PageContainer extends React.Component {
   }
   onScroll = (e) => {
     this.setState({ scrollTop: e.target.documentElement.scrollTop });
+  }
+  onResize = () => {
+    this.updateWidth();
+  }
+  updateWidth = () => {
+    this.setState({
+      width: document.body.clientWidth,
+    });
   }
   render() {
     const { footerHeight, headerHeight, scrollTop, width } = this.state;

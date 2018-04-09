@@ -3,7 +3,7 @@ import { withStyles } from 'material-ui/styles';
 
 const styles = () => ({
   root: {
-    'position': 'absolute',
+    // 'position': 'absolute',
     'width': '100%',
   },
 });
