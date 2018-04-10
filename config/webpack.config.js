@@ -44,9 +44,7 @@ const config = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
-  externals: {
-    react: 'react'
-  },
+  externals: /^(react|material-ui(\/.*)?|@material-ui(\/icons.*)?)$/,
   plugins: [
     // new webpack.optimize.CommonsChunkPlugin({
     //   name: ['vendor', 'manifest'],
