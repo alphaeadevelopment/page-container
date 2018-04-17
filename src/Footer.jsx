@@ -16,14 +16,14 @@ class RawFooter extends React.Component {
       if (this.props.onSetFooterHeight) {
         this.props.onSetFooterHeight(r.clientHeight);
       }
-      this.setState({ height: r.clientHeight });
+      this.setState({ height: r.clientHeight }, this.props.onUpdateHeight);
     }
   }
   render() {
     const { height } = this.state;
     const { classes, children, scrollTop } = this.props;
     const footerStyles = {
-      top: `calc(100vh - ${height - scrollTop - 1}px)`,
+      top: `calc(100vh - ${height - scrollTop}px)`,
     };
     return (
       <div className={classes.root} ref={this.onSetRef} style={footerStyles}>

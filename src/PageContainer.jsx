@@ -23,6 +23,9 @@ export class PageContainer extends React.Component {
     window.addEventListener('resize', this.onResize);
     this.updateWidth();
   }
+  componentWillReceiveProps = () => {
+    this.updateWidth();
+  }
   componentWillUnmount = () => {
     window.removeEventListener(this.onScroll);
     window.removeEventListener(this.onResize);
@@ -53,7 +56,11 @@ export class PageContainer extends React.Component {
         <Body scrollTop={scrollTop} footerHeight={footerHeight} headerHeight={headerHeight}>
           {children}
         </Body>
-        {footer && <Footer scrollTop={scrollTop} onSetFooterHeight={this.onSetFooterHeight}>{footer}</Footer>}
+        {footer &&
+          <Footer onUpdateHeight={this.updateWidth} scrollTop={scrollTop} onSetFooterHeight={this.onSetFooterHeight}>
+            {footer}
+          </Footer>
+        }
       </div>
     );
   }
